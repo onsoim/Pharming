@@ -4,6 +4,7 @@ import urllib2	# Downloadfiles
 import os
 import io
 from geoip import geolite2 as geoip
+import json
 
 def phase1():
 	print "[*] Phase1 (Get cert.html)"
@@ -108,11 +109,11 @@ def phase5(): # https://pythonhosted.org/python-geoip/
 					cn = geoip.lookup(ip).country
 				except:
 					cn = "None"
-				fo.write("%s,%s,%s,%s,%s,%s,%s\n" %(num, time, unicode(name), bank, account, ip, cn))
+				fo.write("%s,%s,%s,%s,%s,%s,%s,\n" %(num, time, unicode(name), bank, account, ip, cn))
 
+with open('parse.json') as f:
+	url = json.load(f)['url']
 
-with open('secret.txt','r') as f:
-	url = f.readline()
 file_num = 36876
 phase1()
 phase2()

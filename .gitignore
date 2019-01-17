@@ -4,5 +4,5 @@ past/
 test/
 Working/
 
-secret.txt
-*.config
+# Sometings that need to hide
+*.json
