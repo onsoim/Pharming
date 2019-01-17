@@ -52,7 +52,7 @@ def download(procs,start,end):
 	redown = []
 	with open('./Working/result.csv', 'r') as fi:
 		lines = fi.readlines()[start:end]
-		for data in lines[1:]:
+		for data in lines:
 			num, ip = data.split(',')[0], data.split(',')[5][:-1]
 			filename = './Working/Downloads/[%05s-%s]%s.zip' %(num, file_num, ip)
 			if not os.path.exists(filename):
@@ -86,6 +86,7 @@ def phase4():
 
 def phase5(): # https://pythonhosted.org/python-geoip/
 	print "[*] Phase5 (Extract data)"
+	print "=> working on"
 	files = os.listdir('./Working/Unzip/')
 	with open('./Working/result.csv','r') as fi:
 		lines = fi.readlines()

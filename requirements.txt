@@ -1,0 +1,5 @@
+cryptography==2.4.2
+PyMySQL==0.9.3
+python-geoip==1.2
+python-geoip-geolite2==2015.303
+requests==2.21.0

@@ -5,3 +5,4 @@ test/
 Working/
 
 secret.txt
+*.config
