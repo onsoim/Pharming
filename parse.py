@@ -117,8 +117,9 @@ sys.path.insert(0, os.getcwd())
 '''
 
 from module import vpn
-
+from module import mysql
 import subprocess
+
 ip = subprocess.check_output('curl ifconfig.me', shell=True)
 while not vpn.checkConnection(ip):
 	vpn.connect()
@@ -132,3 +133,5 @@ phase2()
 phase3()
 phase4()
 phase5()
+mysql.main()
+vpn.disconnect()

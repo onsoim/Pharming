@@ -1,11 +1,13 @@
+# tmp files
 *.swp
 *.pyc
+*.bak
 
 .DS_Store
 
 past/
 Working/
-
+doc/
 
 # Sometings that need to hide
 *.json
