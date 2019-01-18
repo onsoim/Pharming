@@ -110,6 +110,18 @@ def phase5(): # https://pythonhosted.org/python-geoip/
 				except:
 					cn = "None"
 				fo.write("%s,%s,%s,%s,%s,%s,%s,\n" %(num, time, unicode(name), bank, account, ip, cn))
+'''
+import os, sys
+print os.getcwd()
+sys.path.insert(0, os.getcwd())
+'''
+
+from module import vpn
+
+import subprocess
+ip = subprocess.check_output('curl ifconfig.me', shell=True)
+while not vpn.checkConnection(ip):
+	vpn.connect()
 
 with open('parse.json') as f:
 	url = json.load(f)['url']

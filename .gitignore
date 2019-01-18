@@ -1,8 +1,12 @@
+*.swp
+*.pyc
+
 .DS_Store
 
 past/
-test/
 Working/
+
 
 # Sometings that need to hide
 *.json
+*.ovpn
