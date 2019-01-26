@@ -110,28 +110,28 @@ def phase5(): # https://pythonhosted.org/python-geoip/
 				except:
 					cn = "None"
 				fo.write("%s,%s,%s,%s,%s,%s,%s,\n" %(num, time, unicode(name), bank, account, ip, cn))
-'''
-import os, sys
-print os.getcwd()
-sys.path.insert(0, os.getcwd())
-'''
+
 
 from module import vpn
 from module import mysql
 import subprocess
 
-ip = subprocess.check_output('curl ifconfig.me', shell=True)
-while not vpn.checkConnection(ip):
-	vpn.connect()
+if __name__ ==  "__main__":
+	ip = subprocess.check_output('curl ifconfig.me', shell=True)
+	while not vpn.checkConnection(ip):
+		vpn.connect()
 
-with open('parse.json') as f:
-	url = json.load(f)['url']
+	with open('./module/parse.json') as f:
+		data = json.load(f)
+		url = data['url']
+		file_num = data['file_num']
 
-file_num = 36876
-phase1()
-phase2()
-phase3()
-phase4()
-phase5()
-mysql.main()
-vpn.disconnect()
+	phase1()
+	phase2()
+	phase3()
+	phase4()
+	phase5()
+
+	mysql.main()
+	vpn.disconnect()
+	

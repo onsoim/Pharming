@@ -13,7 +13,7 @@ def checkConnection(ip):
 	time.sleep(3)
 	result = subprocess.check_output('curl ifconfig.me', shell=True)
 	country = geoip.lookup(result).country
-	if ip != result or country == "JP":
+	if ip != result or country != "KR":
 		print "VPN is working!(%s)" %(country)
 		return 1
 	else:

@@ -1,3 +1,3 @@
 tell application "Tunnelblick"
-	disconnect "vpngate_JP"
+	disconnect "CA_216.168.109.105"
 end tell
